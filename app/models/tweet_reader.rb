@@ -13,4 +13,8 @@ class TweetReader
     @client.user_timeline(username)
   end
 
+  def send_tweet(status)
+    @client.update(status)
+  end
+
 end

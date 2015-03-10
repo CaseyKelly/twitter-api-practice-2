@@ -3,10 +3,17 @@
 <%= form_tag '/', method: :get %>
 <%= label_tag("Twitter Username") %>
 <%= text_field_tag(:username) %>
-<%= submit_tag %>
+<%= submit_tag 'Get Tweets' %>
 
 <ul>
   <% @othertweets.each do |tweet| %>
     <li><%= tweet.text %></li>
   <% end %>
 </ul>
+
+<h3>Send a tweet from Casey's account</h3>
+
+<%= form_tag %>
+<%= label_tag("Tweet text:") %>
+<%= text_field_tag(:status) %>
+<%= submit_tag 'Send Tweet' %>
