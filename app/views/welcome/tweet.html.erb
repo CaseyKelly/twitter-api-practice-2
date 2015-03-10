@@ -1,0 +1,7 @@
+<h3>Send a tweet from Casey's account</h3>
+
+<%= form_tag '/' do %>
+  <%= label_tag("Tweet text:") %>
+  <%= text_field_tag(:status) %>
+  <%= submit_tag 'Send Tweet' %>
+<% end %>

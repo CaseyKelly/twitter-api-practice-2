@@ -1,0 +1,13 @@
+<h3>Show followers for any account</h3>
+
+<%= form_tag '/follow', mthod: :get do %>
+  <%= label_tag("User:") %>
+  <%= text_field_tag(:user_followers) %>
+  <%= submit_tag 'Find Followers' %>
+<% end %>
+
+<ul>
+  <% @user_followers.each do |follower| %>
+    <li><%= follower %></li>
+  <% end %>
+</ul>
