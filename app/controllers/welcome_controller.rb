@@ -1,7 +1,14 @@
 class WelcomeController < ApplicationController
   def index
-    @casey = TweetReader.new
-    @othertweets = @casey.anyones_tweets(params[:username])
-    @sendtweet = @casey.send_tweet(params[:status])
+    @tweet = TweetReader.new
+
+
+    @othertweets = @tweet.anyones_tweets(params[:username])
+    if params.has_key?(:status)
+      @sendtweet = @tweet.send_tweet(params[:status])
+    end
+    if params.has_key?(:username)
+      @follow_user = @tweet.follow(params[:username])
+    end
   end
 end

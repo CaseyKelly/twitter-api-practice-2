@@ -1,9 +1,10 @@
 <h3>Tweets from any user you enter below</h3>
 
-<%= form_tag '/', method: :get %>
-<%= label_tag("Twitter Username") %>
-<%= text_field_tag(:username) %>
-<%= submit_tag 'Get Tweets' %>
+<%= form_tag '/', method: :get do %>
+  <%= label_tag("Twitter Username") %>
+  <%= text_field_tag(:username) %>
+  <%= submit_tag 'Get Tweets' %>
+<% end %>
 
 <ul>
   <% @othertweets.each do |tweet| %>
@@ -13,7 +14,16 @@
 
 <h3>Send a tweet from Casey's account</h3>
 
-<%= form_tag %>
-<%= label_tag("Tweet text:") %>
-<%= text_field_tag(:status) %>
-<%= submit_tag 'Send Tweet' %>
+<%= form_tag '/' do %>
+  <%= label_tag("Tweet text:") %>
+  <%= text_field_tag(:status) %>
+  <%= submit_tag 'Send Tweet' %>
+<% end %>
+
+<h3>Follow a user on Casey's account</h3>
+
+<%= form_tag '/' do %>
+  <%= label_tag("User to follow:") %>
+  <%= text_field_tag(:username) %>
+  <%= submit_tag 'Follow User' %>
+<% end %>

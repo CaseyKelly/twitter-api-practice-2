@@ -17,4 +17,8 @@ class TweetReader
     @client.update(status)
   end
 
+  def follow(username)
+    @client.follow(username)
+  end
+
 end
