@@ -1,29 +1,22 @@
-<h3>Tweets from any user you enter below</h3>
+<div class="page-header">
+  <div class="pull-right">
 
-<%= form_tag '/', method: :get do %>
-  <%= label_tag("Twitter Username") %>
-  <%= text_field_tag(:username) %>
-  <%= submit_tag 'Get Tweets' %>
-<% end %>
-
-<ul>
-  <% @othertweets.each do |tweet| %>
-    <li><%= tweet.text %></li>
+  <%= form_tag '/', method: :get, class: 'form-inline' do %>
+    <%= label_tag("Twitter Username") %>
+    <%= text_field_tag :username, nil, class: 'form-control' %>
+    <%= submit_tag 'Get Tweets', class: 'btn btn-primary' %>
   <% end %>
-</ul>
+  </div>
 
-<h3>Send a tweet from Casey's account</h3>
+  <h1>See tweets from any user</h1>
+  
+</div>
 
-<%= form_tag '/' do %>
-  <%= label_tag("Tweet text:") %>
-  <%= text_field_tag(:status) %>
-  <%= submit_tag 'Send Tweet' %>
-<% end %>
-
-<h3>Follow a user on Casey's account</h3>
-
-<%= form_tag '/follow' do %>
-  <%= label_tag("User to follow:") %>
-  <%= text_field_tag(:username) %>
-  <%= submit_tag 'Follow User' %>
+<% @tweets.each do |tweet| %>
+  <div class="col-md-6">
+    <blockquote>
+      <p><%= tweet.text %>
+      <small><%= tweet.user.name %> | <%= tweet.user.created_at %></small>
+    </blockquote>
+  </div>
 <% end %>
